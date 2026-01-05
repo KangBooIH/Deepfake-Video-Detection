@@ -1,0 +1,12 @@
+@import './base.css';
+/* @import "tailwindcss";
+@source not "../components/Upload.vue";
+@import "tailwindcss-primeui"; */
+
+#app {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; */
+  font-weight: normal;
+  width: 100%;
+}

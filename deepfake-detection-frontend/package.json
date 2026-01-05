@@ -1,0 +1,32 @@
+{
+  "name": "deepfake-detection-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@primeuix/themes": "^2.0.2",
+    "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.2",
+    "pinia": "^3.0.4",
+    "primevue": "^4.5.3",
+    "tailwindcss": "^4.1.18",
+    "tailwindcss-primeui": "^0.6.1",
+    "vue": "^3.5.22",
+    "vue-google-oauth2": "^1.5.10",
+    "vue-router": "^4.6.3",
+    "vue3-google-login": "^2.0.34"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.3.0",
+    "vite-plugin-vue-devtools": "^8.0.3"
+  }
+}

@@ -1,2 +1,11 @@
 .env*.local
 .env
+.idea/
+.vscode/
+_pycache_/
+dist/
+.coverage*
+htmlcov/
+.tox/
+docs/_build/
+/uploads

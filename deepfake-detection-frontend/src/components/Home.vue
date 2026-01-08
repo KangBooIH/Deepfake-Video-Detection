@@ -44,12 +44,18 @@
     document.getElementById("getFile").click();
   }
 
-  const handleFileSelect = () => {
-    // Access selected files from the input's files property
-    const input = fileInput.value.files;
-    if (input.length > 0) {
-      files.value = input[0]; // Store the first selected file
-      console.log('Selected file:', files.value);
+    const handleFileSelect = () => {
+      const input = fileInput.value?.files
+      if (!input || input.length === 0) return
+
+      const selectedFile = input[0]
+      files.value = selectedFile
+
+      // simpan ke store supaya bisa diakses di Upload.vue
+      store.setFile(selectedFile)
+
+      // pindah ke halaman upload
+      router.push({ path: '/upload' })
     }
   };
 
@@ -72,10 +78,20 @@
   
           <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }" id="wasdrop-zone">
             <div class="inputFileButton">
-              <RouterLink to="/Upload">
-                <button class="theFileButton" @click="getFile()" @change="onchange" :style="!isDragging && 'pointer-events: auto'">Upload your video here!</button>
-                <input type="file" accept="video/*" id="getFile" ref="fileInput" style="display: none;" @change="handleFileSelect">
-              </RouterLink>
+              <button class="theFileButton"
+                  @click="getFile()"
+                  :style="!isDragging && 'pointer-events: auto'">
+                Upload your video here!
+              </button>
+
+              <input 
+                  type="file"
+                  accept="video/*"
+                  id="getFile"
+                  ref="fileInput"
+                  style="display: none;"
+                  @change="handleFileSelect"
+              />
             </div>
             
             <label for="drop-zone" class="file-label">

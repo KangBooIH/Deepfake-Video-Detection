@@ -57,7 +57,7 @@
       // pindah ke halaman upload
       router.push({ path: '/upload' })
     }
-  };
+  }
 
 </script>
 

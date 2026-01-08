@@ -50,11 +50,7 @@
 
       const selectedFile = input[0]
       files.value = selectedFile
-
-      // simpan ke store supaya bisa diakses di Upload.vue
       store.setFile(selectedFile)
-
-      // pindah ke halaman upload
       router.push({ path: '/upload' })
     }
   }

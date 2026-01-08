@@ -44,15 +44,14 @@
     document.getElementById("getFile").click();
   }
 
-    const handleFileSelect = () => {
-      const input = fileInput.value?.files
-      if (!input || input.length === 0) return
+  const handleFileSelect = () => {
+    const input = fileInput.value?.files
+    if (!input || input.length === 0) return
 
-      const selectedFile = input[0]
-      files.value = selectedFile
-      store.setFile(selectedFile)
-      router.push({ path: '/upload' })
-    }
+    const selectedFile = input[0]
+    files.value = selectedFile
+    store.setFile(selectedFile)
+    router.push({ path: '/upload' })
   }
 
 </script>

@@ -8,7 +8,8 @@
     import { useRoute } from 'vue-router'
     import { watch } from 'vue'
 
-    const API_BASE = import.meta.env.VITE_API_BASE
+    const API_BASE = import.meta.env.VITE_API_BASE || "https://KangBooIH-deepfake-detector-vsc.hf.space";
+    
     const route = useRoute()
     const toast = useToast();
     const fileInput = ref(null);
@@ -123,7 +124,7 @@
             formData.append('file', file.value);
             // Replace with your backend URL
             loading.value = true
-            const response = await axios.post('${API_BASE}/api/predict', formData, {
+            const response = await axios.post(`${API_BASE}/api/predict`, formData, {
                 // Optional: Track upload progress
                 onUploadProgress: (progressEvent) => {
                     const percent = Math.round(

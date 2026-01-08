@@ -8,6 +8,7 @@
     import { useRoute } from 'vue-router'
     import { watch } from 'vue'
 
+    const API_BASE = import.meta.env.VITE_API_BASE
     const route = useRoute()
     const toast = useToast();
     const fileInput = ref(null);
@@ -81,7 +82,7 @@
         if (filesTemp.length === 0) return;
         if (filesTemp.length > 1) {
             return false
-        }7
+        }
 
         const fileTemp = filesTemp[0];
         const allowedType = ['video/mp4', 'video/wmv', 'video/mov', 'video/avi', 'video/mkv', 'video/flv', 'video/webm'];
@@ -122,7 +123,7 @@
             formData.append('file', file.value);
             // Replace with your backend URL
             loading.value = true
-            const response = await axios.post('https://KangBooIH-deepfake-detector-vsc.hf.space/api/predict', formData, {
+            const response = await axios.post('${API_BASE}/api/predict', formData, {
                 // Optional: Track upload progress
                 onUploadProgress: (progressEvent) => {
                     const percent = Math.round(
@@ -164,7 +165,7 @@
 
         let get;
         try {
-            const res = await fetch(`https://KangBooIH-deepfake-detector-vsc.hf.space/api/status/${jobId.value}`);
+            const res = await fetch(`${API_BASE}/api/status/${jobId.value}`);
             get = await res.json();
 
             value1.value = get.pct
@@ -186,7 +187,7 @@
         if (!jobId.value) return
 
         try {
-            const res = await fetch(`https://KangBooIH-deepfake-detector-vsc.hf.space/api/result/${jobId.value}`)
+            const res = await fetch(`${API_BASE}/api/result/${jobId.value}`)
 
             // belum ready
             if (res.status === 202) {
